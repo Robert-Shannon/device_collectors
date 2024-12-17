@@ -3,7 +3,7 @@ from typing import Optional, Dict, Any, Callable
 import logging
 
 class DeviceCollector(ABC):
-    def __init__(self):
+    def __init__(self, data_callback: Optional[Callable[[str, Dict], None]] = None):
         self.is_connected = False
         self.device_info: Dict[str, Any] = {}
         self.data_callback: Optional[Callable] = None
